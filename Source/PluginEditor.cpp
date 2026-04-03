@@ -1,40 +1,39 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-//==============================================================================
-QuasarReverbAudioProcessorEditor::QuasarReverbAudioProcessorEditor (QuasarReverbAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
-{
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
-}
 
+
+QuasarReverbAudioProcessorEditor::QuasarReverbAudioProcessorEditor(QuasarReverbAudioProcessor& p)
+    : AudioProcessorEditor(&p), audioProcessor(p)
+{
+    mixSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
+    mixSlider.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);
+    addAndMakeVisible(mixSlider);
+
+    mixAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
+        audioProcessor.apvts, "MIX", mixSlider);
+
+    rt60Slider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
+    addAndMakeVisible(rt60Slider);
+    rt60Attachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
+        audioProcessor.apvts, "RT60", rt60Slider);
+
+    setSize(400, 300);
+}
 QuasarReverbAudioProcessorEditor::~QuasarReverbAudioProcessorEditor()
 {
 }
-
-//==============================================================================
-void QuasarReverbAudioProcessorEditor::paint (juce::Graphics& g)
-{
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-    g.setColour (juce::Colours::white);
-    g.setFont (juce::FontOptions (15.0f));
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
-}
-
 void QuasarReverbAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+    auto area = getLocalBounds().reduced(20);
+    mixSlider.setBounds(area.removeFromLeft(150).reduced(10));
+    rt60Slider.setBounds(area.removeFromLeft(150).reduced(10));
+}
+
+void QuasarReverbAudioProcessorEditor::paint(juce::Graphics& g)
+{
+    g.fillAll(getLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId));
+    g.setColour(juce::Colours::white);
+    g.drawText("Mix", mixSlider.getBounds().withY(mixSlider.getBottom()), juce::Justification::centred, true);
+    g.drawText("Decay", rt60Slider.getBounds().withY(rt60Slider.getBottom()), juce::Justification::centred, true);
 }

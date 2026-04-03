@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="mbdfRR" name="Quasar Reverb" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
-  <MAINGROUP id="Hzw1bB" name="Quasar Reverb">
-    <GROUP id="{B64B1D79-1F19-DCAE-7CD6-B7A26BA147E8}" name="Source">
-      <FILE id="Fbgmd7" name="PluginProcessor.cpp" compile="1" resource="0"
+<JUCERPROJECT id="yjnNsf" name="Quasar Reverb" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" cppLanguageStandard="20"
+              companyName="Zalthyrexor" companyCopyright="Copyright (c) 2026 Zalthyrexor"
+              pluginManufacturerCode="Zlth" pluginVST3Category="Reverb" pluginFormats="buildStandalone">
+  <MAINGROUP id="bpuNra" name="Quasar Reverb">
+    <GROUP id="{A40F15C9-5BF9-D08D-2540-92FFDD4ABCC2}" name="Source">
+      <GROUP id="{2F4D6984-E6F8-3218-9F1F-E478A11B41D2}" name="zlth">
+        <FILE id="IG96GA" name="zlth_dsp_reverb.h" compile="0" resource="0"
+              file="Source/zlth_dsp_reverb.h"/>
+      </GROUP>
+      <FILE id="nPtnew" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
-      <FILE id="PN1JKZ" name="PluginProcessor.h" compile="0" resource="0"
+      <FILE id="WzJjnc" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="UOroZc" name="PluginEditor.cpp" compile="1" resource="0"
+      <FILE id="dFkFqt" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
-      <FILE id="MLUjhh" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="Q4FYWR" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
@@ -33,7 +39,7 @@
   </MODULES>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
-    <VS2026 targetFolder="Builds/VisualStudio2026">
+    <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="Quasar Reverb"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="Quasar Reverb"/>
@@ -54,6 +60,6 @@
         <MODULEPATH id="juce_gui_basics" path="../juce-8.0.12-windows/JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../juce-8.0.12-windows/JUCE/modules"/>
       </MODULEPATHS>
-    </VS2026>
+    </VS2022>
   </EXPORTFORMATS>
 </JUCERPROJECT>
