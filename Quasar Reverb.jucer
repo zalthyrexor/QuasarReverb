@@ -3,7 +3,7 @@
 <JUCERPROJECT id="yjnNsf" name="Quasar Reverb" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" cppLanguageStandard="20"
               companyName="Zalthyrexor" companyCopyright="Copyright (c) 2026 Zalthyrexor"
-              pluginManufacturerCode="Zlth" pluginVST3Category="Reverb" pluginFormats="buildStandalone">
+              pluginManufacturerCode="Zlth" pluginVST3Category="Reverb" pluginFormats="buildVST3">
   <MAINGROUP id="bpuNra" name="Quasar Reverb">
     <GROUP id="{A40F15C9-5BF9-D08D-2540-92FFDD4ABCC2}" name="Source">
       <GROUP id="{2F4D6984-E6F8-3218-9F1F-E478A11B41D2}" name="zlth">
